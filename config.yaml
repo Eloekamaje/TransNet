@@ -1,0 +1,81 @@
+
+location:
+  incoming: /opt/fassoo/videos_src
+  outgoing: /opt/PRODUCTION_DATA/FTP_data/incomming
+  fassoo: /opt/PRODUCTION_DATA/FTP_data/outgoing/fassoo-data
+
+database_servers:
+  - file: 'ngzDBServer.pem'
+    path: '/opt/pama-tech/certificates'
+    ip: 80.158.43.16
+    port: 8635
+  - file: 'ngzSecDBServer.pem'
+    path: '/opt/pama-tech/certificates'
+    ip: 80.158.46.91
+    port: 8635
+
+ca_certificate:
+  file: mondb-clustr_ca.crt
+  path: /opt/fassoo/certificates
+  replica_set: PamaReplica
+  db_user: pama
+  db_password: pamaTech!0
+  auth_source_db: admin
+
+working_datebase:
+  db_name: pamaArchive_dbb
+  images_db_collection: Image
+  profile_db_collection: profile
+  user_db_collection: User
+  ssl_enabled: 'true'
+
+gpu:
+  fraction: 0.01
+
+video:
+  extensions: mp4
+
+techno:
+  - name: null
+  #- name: Concept Detection
+  #- name: Logo Detection
+  #- name: Sports Logo Detection
+  #- name: Iptc
+  #- name: Expression Identification
+  #- name: Subtags Recognition
+  #- name: Global Concepts
+  #- name: Safe Search
+  #- name: Common
+
+pi_config:
+  - name: null
+  #- name: classifier_ministers_18022019.pkl
+  #- name: classifier_bundesliga3xx.pkl
+  #- name: classifier_coaches.pkl
+  #- name: classifier_pama37.pkl
+  #- name: classifier_ministers_18022019.pkl
+  #- name: classifier_politicians.pkl
+  #- name: classifier_msp948.protocol2.pkl
+  #- name: classifier_bundesliga_110_bdtag.pkl
+  #- name: classifier_bundesliga2_94_bdtag.pkl
+
+origin_list: fassoo
+
+es_index: fassoo-internal
+es_type: video
+
+delta_time: 0.04
+insert_profile: 0
+move_images_to_fassoo: 0
+
+customers_id: fassoo
+customers_name: fassoo
+
+#sftp:
+  #customer: fassoo
+  #host: 89.163.160.214
+  #port: 22
+  #directory: /home/pama-tech
+  #user: fassoo
+  #pwd: fassoo
+
